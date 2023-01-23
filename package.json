@@ -1,0 +1,43 @@
+{
+  "name": "babel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install && babel src --out-dir dist",
+    "start": "npm run build && node ./dist/index.js",
+    "dev": "nodemon --exec babel-node ./src/index.js",
+    "prod": "npm run build && forever start dist/index.js",
+    "start:fork": "node dist/index.js --p=8081",
+    "start:cluster": "node dist/index.js --p=8082 --cluster",
+    "stop:all": "forever stopall",
+    "prod:fork": "npm run build && pm2 start dist/index.js --watch --name=LOGINfork",
+    "prod:cluster": "npm run build && pm2 start dist/index.js --watch -i max --name=LOGINcluster",
+    "artillery:fork": "artillery quick --count 50 -n 40 http://localhost:8080/info"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.15.0",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "log4js": "^6.7.1",
+    "minimist": "^1.2.7",
+    "mongoose": "^6.3.4",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
+  }
+}
