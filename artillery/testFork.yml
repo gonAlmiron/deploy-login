@@ -1,0 +1,18 @@
+config:
+  target: 'http://localhost:8081'
+  phases:
+    -duration: 5
+    arrivalRate: 50
+    name: Warm up
+  payload:
+    path: 'keys.csv' # en este archivo se guardan los IDs de los usuarios para ir agarrando despues en {{id}}
+    fields:
+      - 'id'
+  scenarios:
+    -name: 'Search all users & then find a specific user'
+      flow:
+        -get: 
+          url: '/api/users'
+        -think: 10
+        -get:
+          url: '/api/users?id={{id}}'

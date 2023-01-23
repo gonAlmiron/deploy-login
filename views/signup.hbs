@@ -1,0 +1,18 @@
+<div class="container my-5">
+  <h4>REGISTRATE:</h4>
+  <hr/>
+  <form class="form" action="/api/signup" method="post" role="form" autocomplete="off">
+    <div class="mb-3">
+      <input id="username" name='username' placeholder="Ingresa tu nombre" class="form-control" type="text" required>
+    </div>
+    <div class="mb-3">
+      <input id="password" name='password' placeholder="Ingresa una contraseña" class="form-control" type="password" required>
+    </div>
+    <div class="mb-3">
+      <input class="btn btn-primary my-3" type="submit" value="Registrarme">
+    </div>
+  </form>
+  <div class="mb-3">
+    <button class="btn btn-primary" onclick="location.href = '/api/login'">Ir a Login</button>
+  </div>
+</div>
