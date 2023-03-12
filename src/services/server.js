@@ -86,7 +86,6 @@ const argumentos = {
 };
 
 const args = minimist(process.argv.slice(2), argumentos)
-console.log(args)
 
 app.use('/api', mainRouter);
 
