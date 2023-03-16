@@ -77,7 +77,6 @@ var argumentos = {
   }
 };
 var args = (0, _minimist["default"])(process.argv.slice(2), argumentos);
-console.log(args);
 app.use('/api', _routes["default"]);
 var _default = app;
 exports["default"] = _default;

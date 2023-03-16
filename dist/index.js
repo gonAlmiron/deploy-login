@@ -66,5 +66,3 @@ var init = /*#__PURE__*/function () {
 init();
 
 // }
-
-//
